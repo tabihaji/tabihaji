@@ -2,7 +2,7 @@
 <content>
     <h1>
         <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-        <a href="{{ .RelPermalink }}index.xml"><img id = "rss" src="/image/rss.png" alt="RSS xmlへのリンク"></a>
+        <a href="{{ .RelPermalink }}index.xml"><img id = "rss"  src="{{ "image/rss.png" | relURL }}" alt="RSS xmlへのリンク"></a>
     </h1>
 
     {{ with .Params.summary }}
