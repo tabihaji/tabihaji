@@ -1,0 +1,41 @@
+{{ define "main" }}
+<content>
+
+<p>ヘイラッシャイ！</p>
+<h3>小説新着</h3>
+    <h4>
+        禍話リライト
+        {{ $section := index (where .Site.Sections "Section" "maga-rewrite") 0 }}
+        <a href="{{ $section.RelPermalink }}index.xml"><img id = "rss" src="/image/rss.png" alt="RSS xmlへのリンク"></a>
+    </h4>
+        <ul>
+            {{ $works := where .Site.RegularPages "Section" "maga-rewrite" }}
+            {{ $works = $works.ByDate.Reverse }}
+            {{ range first 5 $works }}
+                <li class = "home_list">
+                    <time>{{.Date.Format "2006-01-02"}}</time>
+                    &ensp;
+                    <a href="{{.RelPermalink}}">{{.Title}}</a>
+                </li>
+            {{ end }}
+        </ul>
+    <h4>
+        マヨのラッキークローバー
+        {{ $section := index (where .Site.Sections "Section" "trickcal-ff") 0 }}
+        <a href="{{ $section.RelPermalink }}index.xml"><img id = "rss" src="/image/rss.png" alt="RSS xmlへのリンク"></a>
+
+    </h4>
+        <ul>
+            {{ $works := where .Site.RegularPages "Section" "trickcal-ff" }}
+            {{ $works = $works.ByDate.Reverse }}
+            {{ range first 5 $works }}
+                <li class = "home_list">
+                    <time>{{.Date.Format "2006-01-02"}}</time>
+                    &ensp;
+                    <a href="{{.RelPermalink}}">{{.Title}}</a>
+                </li>
+            {{ end }}
+        </ul>
+
+</content>
+{{ end }}

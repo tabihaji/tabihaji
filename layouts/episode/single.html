@@ -1,0 +1,76 @@
+{{ define "main" }}
+<h2 style="text-align:center;">{{ .Title }}</h2>
+<content>
+    {{ .Content }}
+</content>
+<nav id = "episode_nav">
+    {{ $chapter := .Parent }}
+    {{ $chapters := $chapter.Parent.Sections.ByWeight }}
+    {{ $episodes := $chapter.Pages.ByWeight }}
+    {{ $current := . }}
+    {{ $prev_link := "" }}
+    {{ $prev_title := "" }}
+    {{ $work_link := "" }}
+    {{ range $i, $e := $episodes }}
+        {{ if eq $e.RelPermalink $current.RelPermalink }}
+            {{ if gt $i 0 }}
+            {{ with index $episodes (sub $i 1) }}
+                {{ $prev_link = .RelPermalink }}
+                {{ $prev_title = .Title }}
+            {{ end }}
+            {{ else }}
+                {{ if eq .Parent.Type "chapter" }}
+                {{ range $ci, $c := $chapters }}
+                    {{ if eq $c.RelPermalink $chapter.RelPermalink }}
+                        {{ if gt $ci 0 }}
+                            {{ $prevChapter := index $chapters (sub $ci 1) }}
+                            {{ with index ($prevChapter.Pages.ByWeight.Reverse) 0 }}
+                                {{ $prev_link = .RelPermalink }}
+                                {{ $prev_title = .Title }}
+                            {{ end }}
+                            {{ end }}
+                        {{ end }}
+                    {{ end }}
+                {{ end }}
+                {{ end }}
+            {{ end }}
+    {{ end }}
+    {{ if eq .Parent.Type "chapter" }}
+        {{ $work_link = .Parent.Parent.RelPermalink }}
+    {{ else }}
+        {{ $work_link = .Parent.RelPermalink }}
+    {{ end }}
+    {{ if $prev_link }}
+        <a href="{{ $prev_link }}" class = "nav_item nav_prev">{{ $prev_title }}</a>
+    {{ else }}
+        <span class = "nav_item"></span>
+    {{ end }}
+    <a href="{{ $work_link }}" class = "nav_item nav_toc">[ 目次 ]</a>
+    {{ range $i, $e := $episodes }}
+        {{ if eq $e.RelPermalink $current.RelPermalink }}
+            {{ if lt (add $i 1) (len $episodes) }}
+            {{ with index $episodes (add $i 1) }}
+                <a href="{{ .RelPermalink }}" class = "nav_item nav_next">
+                    {{ .Title }}
+                </a>
+            {{ end }}
+            {{ else }}
+                {{ if eq .Parent.Type "chapter" }}
+                {{ range $ci, $c := $chapters }}
+                    {{ if eq $c.RelPermalink $chapter.RelPermalink }}
+                        {{ if lt (add $ci 1) (len $chapters) }}
+                            {{ $nextChapter := index $chapters (add $ci 1) }}
+                            {{ with index $nextChapter.Pages.ByWeight 0 }}
+                                <a href="{{ .RelPermalink }}" class = "nav_item nav_next">
+                                    {{ .Title }}
+                                </a>
+                            {{ end }}
+                        {{ end }}
+                    {{ end }}
+                {{ end }}
+                {{ end }}
+            {{ end }}
+        {{ end }}
+    {{ end }}
+</nav>
+{{ end }}

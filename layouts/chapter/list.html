@@ -1,0 +1,33 @@
+{{ define "main" }}
+<content>
+    <h4><a href="{{ .RelPermalink }}">{{ .Title }}</a></h4>
+    <ul class="blog-posts">
+        {{ range .Pages }}
+        <li>
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </li>
+        {{ end }}
+    </ul>
+    <nav id = "chapter_nav">
+    {{ $chapters := .Parent.Sections.ByWeight }}
+    {{ $current := . }}
+    {{ range $i, $c := $chapters }}
+        {{ if eq $c.RelPermalink $current.RelPermalink }}
+            {{ if gt $i 0 }}
+            {{ with index $chapters (sub $i 1) }}
+                <a href="{{ .RelPermalink }}" class = "nav_prev nav_item">{{ .Title }}</a>
+            {{ end }}
+            {{ else }}
+                <span class = "nav_item"></span>
+            {{ end }}
+            <a href="{{ .Parent.RelPermalink }}" class = "nav_item nav_toc">[ 目次 ]</a>
+            {{ if lt (add $i 1) (len $chapters) }}
+            {{ with index $chapters (add $i 1) }}
+                <a href="{{ .RelPermalink }}" class = "nav_item nav_next">{{ .Title }}</a>
+            {{ end }}
+            {{ end }}
+        {{ end }}
+    {{ end }}
+    </nav>
+</content>
+{{ end }}

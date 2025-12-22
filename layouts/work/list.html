@@ -1,0 +1,42 @@
+{{ define "main" }}
+<content>
+    <h3>
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        <a href="{{ .RelPermalink }}index.xml"><img id = "rss" src="/image/rss.png" alt="RSS xmlへのリンク"></a>
+    </h3>
+
+    {{ with .Params.summary }}
+        <h4>概要</h4>
+        <p class="summary">{{ . }}</p>
+        <hr>
+    {{ end }}
+
+    {{ .Content }}
+
+    <hr>
+    <ul class="blog-posts">
+    {{ range where .Pages "Type" "info" }}
+        <li>
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </li>
+    {{ end }}
+    {{ range where .Pages "Type" "episode" }}
+        <li>
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </li>
+    {{ end }}
+    </ul>
+    {{ range .Sections }}
+        <section style="margin-bottom: 2em;">
+            <h4><a href="{{ .RelPermalink }}">{{ .Title }}</a></h4>
+            <ul class="blog-posts">
+            {{ range .Pages }}
+                <li>
+                    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                </li>
+            {{ end }}
+            </ul>
+        </section>
+    {{ end }}
+</content>
+{{ end }}

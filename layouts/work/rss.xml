@@ -1,0 +1,21 @@
+{{- $pages := where .RegularPagesRecursive "Type" "episode" -}}
+{{- $pages = $pages.ByDate.Reverse -}}
+
+<rss version="2.0">
+  <channel>
+    <title>{{ .Title }}</title>
+    <link>{{ .Permalink }}</link>
+    <description>{{ .Params.description | default .Params.summary }}</description>
+    <language>ja</language>
+    {{ range first 20 $pages }}
+    <item>
+      <title>{{ .Title }}</title>
+      <link>{{ .Permalink }}</link>
+      <guid>{{ .Permalink }}</guid>
+      <pubDate>{{ .Date.Format "2006-01-02 15:04:05-0700" }}</pubDate>
+      <description>{{ .Params.description | default .Summary | plainify }}</description>
+    </item>
+    {{ end }}
+
+  </channel>
+</rss>
