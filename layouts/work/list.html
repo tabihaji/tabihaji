@@ -1,9 +1,9 @@
 {{ define "main" }}
 <content>
-    <h3>
+    <h1>
         <a href="{{ .RelPermalink }}">{{ .Title }}</a>
         <a href="{{ .RelPermalink }}index.xml"><img id = "rss" src="/image/rss.png" alt="RSS xmlへのリンク"></a>
-    </h3>
+    </h1>
 
     {{ with .Params.summary }}
         <h4>概要</h4>
@@ -27,7 +27,7 @@
     {{ end }}
     </ul>
     {{ range .Sections }}
-        <section style="margin-bottom: 2em;">
+        <section>
             <h4><a href="{{ .RelPermalink }}">{{ .Title }}</a></h4>
             <ul class="blog-posts">
             {{ range .Pages }}
