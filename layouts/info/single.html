@@ -1,8 +1,14 @@
 {{ define "main" }}
 <content>
-    {{ .Content }}
-</content>
+{{ if gt .Lastmod .Date }}
+    <small class = "lastmod">
+        更新日：{{ .Lastmod.Format "2006-01-02" }}
+    </small>
+{{ end }}
+<h1>{{ .Title }}</h1>
+{{ .Content }}
 <nav id = "info_nav">
     <a href="{{ .Parent.RelPermalink }}">[ 目次 ]</a>
 </nav>
+</content>
 {{ end }}
