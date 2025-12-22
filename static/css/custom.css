@@ -25,6 +25,34 @@ li a, .home_list{
     text-overflow: ellipsis;
 }
 
+.nav_item{
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+.nav_prev{
+    justify-self: start;
+}
+
+.nav_toc{
+    justify-self: center;
+}
+
+.nav_next{
+    justify-self: end;
+}
+
+.lastmod{
+    font-size: 0.7em;
+}
+
+.rss{
+    height: 0.7em;
+}
+
 #chapter_nav{
     display: grid;
     grid-template-columns: 1fr auto 1fr;
@@ -68,29 +96,4 @@ li a, .home_list{
 
 #chapter_nav > a, #episode_nav > a, #info_nav > a{
     padding: 0.5em 1em;
-}
-
-
-.nav_item{
-    display: block;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    max-width: 100%;
-}
-
-.nav_prev{
-    justify-self: start;
-}
-
-.nav_toc{
-    justify-self: center;
-}
-
-.nav_next{
-    justify-self: end;
-}
-
-#rss{
-    height: 0.7em;
 }

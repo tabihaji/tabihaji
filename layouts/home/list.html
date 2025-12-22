@@ -7,7 +7,7 @@
     <h4>
         禍話リライト
         {{ $section := index (where .Site.Sections "Section" "maga-rewrite") 0 }}
-        <a href="{{ $section.RelPermalink }}index.xml"><img id = "rss" src="{{ "image/rss.png" | relURL }}" alt="RSS xmlへのリンク"></a>
+        <a href="{{ $section.RelPermalink }}index.xml"><img class = "rss" src="{{ "image/rss.png" | relURL }}" alt="RSS xmlへのリンク"></a>
     </h4>
         <ul>
             {{ $works := where .Site.RegularPages "Section" "maga-rewrite" }}
@@ -23,7 +23,7 @@
     <h4>
         マヨのラッキークローバー
         {{ $section := index (where .Site.Sections "Section" "trickcal-ff") 0 }}
-        <a href="{{ $section.RelPermalink }}index.xml"><img id = "rss" src="{{ "image/rss.png" | relURL }}" alt="RSS xmlへのリンク"></a>
+        <a href="{{ $section.RelPermalink }}index.xml"><img class = "rss" src="{{ "image/rss.png" | relURL }}" alt="RSS xmlへのリンク"></a>
 
     </h4>
         <ul>
