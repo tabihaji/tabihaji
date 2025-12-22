@@ -1,3 +1,7 @@
+:root {
+    --font-secondary: serif;
+}
+
 h1 {
     text-align: center;
 }
