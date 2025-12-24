@@ -1,4 +1,4 @@
 +++
-title = '日記'
+title = 'ブログ'
 weight = 9
 +++
