@@ -12,7 +12,7 @@ weight = 10
 このサイトは [Github Pages](https://docs.github.com/ja/pages)を利用して公開されています。\
 サイトの作成には [Hugo](https://gohugo.io/)を利用しました。\
 使用しているHugoのテーマは [Hugo Bear Blog](https://github.com/janraasch/hugo-bearblog/tree/master)で、用途に合わせるため部分的に改変しています。\
-また、サイトのfavicon、RSSアイコンは [ICOOON MONO](https://icooon-mono.com)のものを利用しています。
+また、サイトで使用しているアイコンは [ICOOON MONO](https://icooon-mono.com)のものを利用しています。
 
 更新は不定期です。
 
