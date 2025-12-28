@@ -15,7 +15,9 @@
 
     <hr>
     <ul class="blog-posts">
-    {{ range where .Pages "Type" "info" }}
+    {{ $infoPages := where .Pages "Type" "info" }}
+    {{ if gt (len $infoPages) 0 }}
+    {{ range $infoPages }}
         <li>
             {{ if gt .Lastmod .Date }}
                 <small class = "lastmod">
@@ -24,7 +26,10 @@
             {{ end }}
             <a href="{{ .RelPermalink }}">{{ .Title }}</a>
         </li>
+        <hr>
     {{ end }}
+    {{ end }}
+
     {{ range where .Pages "Type" "episode" }}
         <li>
             {{ if gt .Lastmod .Date }}
