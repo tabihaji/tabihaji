@@ -1,8 +1,11 @@
 +++
 date = '{{ .Date }}'
 lastmod = '{{ .Date }}'
-draft = true
+weight = '{{ replace .File.ContentBaseName "-" " " | title }}'
 title = '{{ replace .File.ContentBaseName "-" " " | title }}'
+type = "episode"
+tags = [""]
+draft = true
 +++
 
 
