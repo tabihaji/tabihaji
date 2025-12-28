@@ -2,3 +2,5 @@
   Simply place a custom_head.html into
   your local /layouts/partials-directory -->
 <link rel="stylesheet" href="{{ "css/custom.css" | relURL }}">
+{{ $js := resources.Get "js/theme.js" | minify }}
+<script src="{{ $js.RelPermalink }}"></script>

@@ -1,0 +1,11 @@
+<a href="{{ "" | relURL }}" class="title">
+    <h2 style = "display:inline;">{{ .Site.Title }}</h2>
+</a>
+
+<span id="theme-switch">
+<label id="switch-label">
+    <input type="checkbox" id = "switch"/>
+</label>
+<img src="/tabihaji/image/light.png">
+</span>
+<nav>{{- partial "nav.html" . -}}</nav>

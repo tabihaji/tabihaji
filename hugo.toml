@@ -1,11 +1,16 @@
 baseURL = 'https://tabihaji.github.io/tabihaji/'
-languageCode = "ja-jp"
+languageCode = "ja-JP"
 defaultContentLanguage = "ja"
-theme = "hugo-bearblog"
+enableRobotsTXT = true
 
 title = "足袋の端"
+author = "tabihaji"
+copyright = "Copyright © 2026, tabihaji."
 
+theme = "hugo-bearblog"
 sectionPagesMenu = 'main'
+disableKinds = ["taxonomy"]
+ignoreErrors = ["error-disable-taxonomy"]
 
 [caches]
     [caches.images]
@@ -16,5 +21,16 @@ sectionPagesMenu = 'main'
     dateFormat = "2006-01-02"
     title = "足袋の端"
     favicon = "image/favicon.ico"
+    #images = ["images/share.png"]
     hideMadeWithLine = true
     enablePostNavigator = true
+
+[permalinks]
+    blog = "/:slug/"
+#    tags = "/blog/:slug"
+
+[markup]
+    [markup.highlight]
+        lineNos = true
+        lineNumbersInTable = false
+        codeFences = true

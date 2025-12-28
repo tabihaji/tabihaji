@@ -1,6 +1,84 @@
 :root {
-    --font-secondary: serif;
+    --width: 720px;
+    --font-scale: 1em;
+    --font-main: Verdana, sans-serif;
+    --font-secondary: serif, Verdana, sans-serif;
 }
+
+html[data-theme="light"]{
+    --background-color: #F0E6C8;
+    --heading-color: #222;
+    --text-color: #444;
+    --link-color: #3273dc;
+    --visited-color: #8b6fcb;
+    --blockquote-color: #222;
+}
+
+html[data-theme="dark"]{
+      --background-color: #171B1D;
+      --heading-color: #eee;
+      --text-color: #ddd;
+      --link-color: #8cc2dd;
+      --visited-color: #8b6fcb;
+      --blockquote-color: #ccc;
+}
+
+/* テーマ切り替えスイッチ */
+/* 参考元 → https://blog.to-ko-s.com/css-toggle-button/ */
+
+#theme-switch{
+    margin-left: 2rem;
+}
+
+#theme-switch img{
+    width: 1rem;
+    height: 1rem;
+}
+
+#switch-label{
+    display: inline-block;
+    position: relative;
+    width: 2rem;
+    height: 1rem;
+    border-radius: 10px;
+    background-color: #dddddd;
+    cursor: pointer;
+    transition: background-color .4s;
+}
+
+#switch-label:has(:checked) {
+    background-color: #4bd865;
+}
+
+#switch-label::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgb(0 0 0 / 20%);
+    background-color: #fff;
+    content: '';
+    transition: left .4s;
+}
+
+#switch-label:has(:checked)::after {
+    left: 1rem;
+}
+
+#switch{
+    display: none;
+}
+/* ---------- ここまで ---------- */
+
+header{
+    position: sticky;
+    top: 0px;
+    background-color: var(--background-color);
+    border-bottom: 1px solid;
+}
+
 
 h1 {
     text-align: center;
@@ -19,6 +97,11 @@ p {
     margin: 0.6em 0;
 }
 
+blockquote{
+    border-left-width: 5px;
+    background-color: color-mix(in sRGB, var(--background-color) 90%, dimgray);
+}
+
 nav a{
     margin: 0 4px;
 }
@@ -27,6 +110,10 @@ li a, .home_list{
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+}
+
+code:not([class]){
+    background-color: color-mix(in sRGB, var(--background-color) 70%, silver);
 }
 
 .nav_item{
@@ -49,12 +136,24 @@ li a, .home_list{
     justify-self: end;
 }
 
-.lastmod{
+.lastmod_list{
     font-size: 0.7em;
+    align-self: center;
+    margin-left: 5px;
+    flex-grow: 1 !important;
+}
+
+.lastmod_single{
+    font-size: 0.7em;
+    text-align: right;
 }
 
 .rss{
     height: 0.7em;
+}
+
+.section_tag{
+    margin-right: 0.2em;
 }
 
 #chapter_nav{
@@ -100,4 +199,8 @@ li a, .home_list{
 
 #chapter_nav > a, #episode_nav > a, #info_nav > a{
     padding: 0.5em 1em;
+}
+
+#section_tags{
+    word-break: keep-all;
 }

@@ -1,0 +1,24 @@
+{{ if not .Data.Singular }}
+    {{ $section := .Section }}
+    {{ $has_tag := false }}
+    {{ range $tag, $pages := .Site.Taxonomies.tags }}
+        {{ $filtered := where $pages "Section" $section }}
+        {{ if gt (len $filtered) 0 }}
+            {{ $has_tag = true }}
+        {{ end }}
+    {{ end }}
+
+    {{ if $has_tag }}
+        <hr>
+        <div id = "section_tags">
+        {{ range $tag, $pages := .Site.Taxonomies.tags }}
+            {{ $filtered := where $pages "Section" $section }}
+            {{ if gt (len $filtered) 0 }}
+                <small class = "section_tag">
+                    <a href="{{ .Page.Permalink }}">#{{ .Page.Title }}</a>
+                </small>
+            {{ end }}
+        {{ end }}
+    {{ end }}
+    </div>
+{{ end }}
