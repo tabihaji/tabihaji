@@ -11,8 +11,9 @@
     </h4>
         <ul>
             {{ $works := where .Site.RegularPages "Section" "maga-rewrite" }}
-            {{ $works = $works.ByDate.Reverse }}
-            {{ range first 5 $works }}
+            {{ $pages := where $works "Type" "episode" }}
+            {{ $pages = $pages.ByDate.Reverse }}
+            {{ range first 5 $pages }}
                 <li class = "home_list">
                     <time>{{.Date.Format "2006-01-02"}}</time>
                     &ensp;
@@ -28,8 +29,9 @@
     </h4>
         <ul>
             {{ $works := where .Site.RegularPages "Section" "trickcal-ff" }}
-            {{ $works = $works.ByDate.Reverse }}
-            {{ range first 5 $works }}
+            {{ $pages := where $works "Type" "episode" }}
+            {{ $pages = $pages.ByDate.Reverse }}
+            {{ range first 5 $pages }}
                 <li class = "home_list">
                     <time>{{.Date.Format "2006-01-02"}}</time>
                     &ensp;
