@@ -1,8 +1,8 @@
 +++
-title = 'トリッカル短編'
+title = 'マヨのラッキークローバー'
 type = "work"
-weight = 4
-summary = "一話完結型の、それぞれのお話に繋がりのない短編集です。"
+weight = 3
+summary = "教主とマヨを中心に、エーリアスで起きる騒動を綴ったお話。"
 onTopPage = true
 +++
 
