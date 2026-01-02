@@ -5,6 +5,10 @@
     --font-secondary: serif, Verdana, sans-serif;
 }
 
+html{
+    scroll-padding-top: 90px;
+}
+
 html[data-theme="light"]{
     --background-color: #F0E6C8;
     --heading-color: #222;
