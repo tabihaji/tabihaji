@@ -12,7 +12,7 @@
 <nav id = "episode_nav">
     {{ $chapter := .Parent }}
     {{ $chapters := $chapter.Parent.Sections.ByWeight }}
-    {{ $episodes := $chapter.Pages.ByWeight }}
+    {{ $episodes := where $chapter.Pages.ByWeight "Type" "episode" }}
     {{ $current := . }}
     {{ $prev_link := "" }}
     {{ $prev_title := "" }}
