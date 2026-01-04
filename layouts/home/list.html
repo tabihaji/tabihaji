@@ -18,8 +18,8 @@
         {{ $pagesOnChap := slice }}
         {{ range .Sections.ByWeight }}
         {{ $pagesOnChap = $pagesOnChap | append (where .RegularPages "Type" "episode") }}
-        {{ $pages = $pages | append $pagesOnChap }}
         {{ end }}
+        {{ $pages = $pages | append $pagesOnChap }}
         {{ end }}
         {{ $pages = $pages.ByDate.Reverse }}
         {{ range first 5 $pages }}
