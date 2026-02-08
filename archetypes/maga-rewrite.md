@@ -5,6 +5,7 @@ weight = '{{ replace .File.ContentBaseName "-" " " | title }}'
 title = '{{ replace .File.ContentBaseName "-" " " | title }}'
 type = "episode"
 tags = [""]
+summary = ""
 draft = true
 +++
 
