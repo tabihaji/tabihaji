@@ -10,9 +10,9 @@ function setTheme(){
         document.documentElement.dataset.theme = stored;
     } else {
         // 未指定ならシステム設定を使う
-        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-        document.documentElement.dataset.theme = prefersDark ? "dark" : "light";
-        localStorage.setItem("theme", prefersDark);
+        const theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"
+        document.documentElement.dataset.theme = theme;
+        localStorage.setItem("theme", theme);
     }
 }
 
