@@ -1,5 +1,5 @@
 baseURL = 'https://tabihaji.github.io/tabihaji/'
-languageCode = "ja-JP"
+locale = "ja-JP"
 defaultContentLanguage = "ja"
 enableRobotsTXT = true
 
